@@ -1,6 +1,7 @@
 import {
   Account,
   ProgramManager,
+  PrivateKey,
   initThreadPool,
   AleoKeyProvider,
   AleoNetworkClient,
@@ -27,7 +28,7 @@ async function localProgramExecution(program, aleoFunction, inputs) {
 }
 
 async function getPrivateKey() {
-  const key = 'hidden';
+  const key = new PrivateKey();
   return proxy(key);
 }
 
@@ -40,7 +41,7 @@ async function deployProgram(program) {
 
   // Use existing account with funds
   const account = new Account({
-    privateKey: "hidden",
+    privateKey: process.env.PRIVATE_KEY,
   });
 
   const recordProvider = new NetworkRecordProvider(account, networkClient);
@@ -55,7 +56,7 @@ async function deployProgram(program) {
   programManager.setAccount(account);
 
   // Define a fee to pay to deploy the program
-  const fee = 2; // 1.9 Aleo credits
+  const fee = 1.9; // 1.9 Aleo credits
 
   // Deploy the program to the Aleo network
   const tx_id = await programManager.deploy(program, fee);
