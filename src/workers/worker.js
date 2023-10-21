@@ -27,7 +27,7 @@ async function localProgramExecution(program, aleoFunction, inputs) {
 }
 
 async function getPrivateKey() {
-  const key = "APrivateKey1zkpFAxSK2YWZeeHjLd8apnfXJw5bW1U3jCutHj2tGqG1gLC";
+  const key = 'hidden';
   return proxy(key);
 }
 
@@ -40,7 +40,7 @@ async function deployProgram(program) {
 
   // Use existing account with funds
   const account = new Account({
-    privateKey: "APrivateKey1zkpFAxSK2YWZeeHjLd8apnfXJw5bW1U3jCutHj2tGqG1gLC",
+    privateKey: "hidden",
   });
 
   const recordProvider = new NetworkRecordProvider(account, networkClient);
