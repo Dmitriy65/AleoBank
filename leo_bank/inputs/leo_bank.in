@@ -1,0 +1,3 @@
+// The program input for leo_bank/src/main.leo
+[main]
+public loopValue: u64 = 1u64;
